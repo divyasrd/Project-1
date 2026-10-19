@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10111d">
+  <meta name="description" content="A little hello from your new corner of the web.">
+  <title>Hello, World! — A Little Beginning</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #f5f3ff;
+      --muted: #aaa8bd;
+      --violet: #a78bfa;
+      --mint: #7cf3cf;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      padding: 2rem;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at 18% 15%, #49338b55 0, transparent 42%),
+        radial-gradient(ellipse at 85% 78%, #17685844 0, transparent 38%),
+        #10111d;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .12;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.3'/%3E%3C/svg%3E");
+    }
+
+    main {
+      position: relative;
+      width: min(100%, 760px);
+      padding: clamp(2rem, 7vw, 5.5rem);
+      border: 1px solid #ffffff18;
+      border-radius: 28px;
+      background: linear-gradient(145deg, #ffffff0c, #ffffff04);
+      box-shadow: 0 30px 100px #0005, inset 0 1px #ffffff12;
+      text-align: center;
+      backdrop-filter: blur(14px);
+      animation: rise .8s cubic-bezier(.2,.75,.25,1) both;
+    }
+
+    .sparkle {
+      display: inline-grid;
+      width: 58px;
+      height: 58px;
+      margin-bottom: 1.5rem;
+      place-items: center;
+      border: 1px solid #a78bfa55;
+      border-radius: 18px;
+      color: var(--mint);
+      background: #a78bfa18;
+      font-size: 1.7rem;
+      box-shadow: 0 0 40px #a78bfa22;
+    }
+
+    .eyebrow {
+      margin: 0 0 1rem;
+      color: var(--mint);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3.5rem, 11vw, 7.25rem);
+      line-height: .98;
+      letter-spacing: -.075em;
+    }
+
+    h1 span {
+      display: block;
+      color: transparent;
+      background: linear-gradient(100deg, var(--violet) 12%, #e8b5ff 52%, var(--mint) 94%);
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .intro {
+      max-width: 440px;
+      margin: 1.6rem auto 2rem;
+      color: var(--muted);
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      line-height: 1.75;
+    }
+
+    button {
+      display: inline-flex;
+      align-items: center;
+      gap: .7rem;
+      padding: .95rem 1.25rem;
+      border: 0;
+      border-radius: 999px;
+      color: #141321;
+      background: linear-gradient(100deg, #c5b3ff, #a5ffe2);
+      font: inherit;
+      font-size: .95rem;
+      font-weight: 750;
+      cursor: pointer;
+      box-shadow: 0 8px 30px #9c86ff33;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    button:hover { transform: translateY(-3px); box-shadow: 0 12px 36px #9c86ff55; }
+    button:focus-visible { outline: 3px solid white; outline-offset: 4px; }
+    button:active { transform: translateY(-1px); }
+
+    .footer {
+      position: absolute;
+      right: 1rem;
+      bottom: 1.1rem;
+      left: 1rem;
+      color: #77758c;
+      font-size: .75rem;
+      letter-spacing: .06em;
+      text-align: center;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(18px) scale(.985); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <main>
+    <div class="sparkle" aria-hidden="true">✦</div>
+    <p class="eyebrow">A little beginning</p>
+    <h1>Hello,<span>World!</span></h1>
+    <p class="intro" id="message">Every great idea starts somewhere. Here’s to the first line, the next adventure, and everything you’ll make along the way.</p>
+    <button type="button" id="greet"><span aria-hidden="true">✧</span> Send a little joy</button>
+    <p class="footer">MADE OF CURIOSITY &amp; A FEW LINES OF CODE</p>
+  </main>
+  <script>
+    const button = document.querySelector('#greet');
+    const message = document.querySelector('#message');
+    button.addEventListener('click', () => {
+      message.textContent = 'Hello, you! The web feels a little brighter with you here. ✨';
+      button.innerHTML = '<span aria-hidden="true">✓</span> Joy delivered';
+    });
+  </script>
+</body>
+</html>
